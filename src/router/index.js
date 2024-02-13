@@ -26,6 +26,19 @@ const router = createRouter({
       path: '/multiply/:num1/:num2',
       name: 'multiply',
       component: () => import('../views/MultiplyView.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue'),
+      children: [
+        { path: 'director', name: 'director', component: () => import('../components/DirectorContact.vue') },
+        {
+          path: 'company',
+          name: 'company',
+          component: () => import('../components/CompanyContacts.vue')
+        }
+      ]
     }
   ]
 })

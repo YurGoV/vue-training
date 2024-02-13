@@ -23,6 +23,7 @@ function multi() {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contacts">Contacts</RouterLink>
+        <RouterLink to="/contact">ContacT</RouterLink>
         <RouterLink to="/multiply/2/4">Multiply</RouterLink>
         <div class="clicable" @click="multi">M func</div>
       </nav>

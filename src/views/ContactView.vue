@@ -1,12 +1,14 @@
 <template>
   <div>
-    <h1>Contacts</h1>
+    <h1>Contact</h1>
     {{ $route.params.contact }}
     {{ cont }}
 
     <RouterLink to="/contact/director">director contacts</RouterLink>
     <RouterLink to="/contact/company">workers contacts</RouterLink>
   </div>
+
+  <RouterView />
 </template>
 
 <script setup>
