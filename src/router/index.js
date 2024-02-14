@@ -39,6 +39,16 @@ const router = createRouter({
           component: () => import('../components/CompanyContacts.vue')
         }
       ]
+    },
+    {
+      path: '/worker/:id',
+      name: 'worker',
+      component: () => import('../views/WorkerView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('../views/NotFound.vue')
     }
   ]
 })
