@@ -1,6 +1,38 @@
 <template>
-  <h1>Welcome Item</h1>
+  <div>
+    <h1>Worker</h1>
+    {{ $route.params.id }}
+    <br />
+    {{ worker }}
+
+    <RouterLink to="/contact/director">director contacts</RouterLink>
+    <RouterLink to="/contact/company">workers contacts</RouterLink>
+  </div>
+
+  <RouterView />
 </template>
+
+<script setup>
+const workers = {
+  1: 'worker with id 1',
+  3: 'worker w id 3'
+}
+import { ref } from 'vue'
+import { onBeforeRouteUpdate } from 'vue-router'
+
+const worker = ref(null)
+
+onBeforeRouteUpdate((to) => {
+  const workerData = workers[to.params.id]
+  if (workerData) {
+    worker.value = workerData
+  } else {
+    return { name: 'not-found' }
+  }
+
+  console.log(worker, 'wwkr')
+})
+</script>
 
 <style scoped>
 .item {

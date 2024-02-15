@@ -1,6 +1,32 @@
 <template>
-  <h1>Welcome Item</h1>
+  <div>
+    <h1>Contact</h1>
+    {{ $route.params.contact }}
+    {{ cont }}
+
+    <RouterLink to="/contact/director">director contacts</RouterLink>
+    <RouterLink to="/contact/company">workers contacts</RouterLink>
+  </div>
+
+  <RouterView />
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const cont = ref(null)
+
+const router = useRouter()
+
+onMounted(() => {
+  const routeSection = router.currentRoute.value
+  // const contact = routeSection.params.contact
+  // console.log(contact, 'contact')
+  cont.value = routeSection.params.contact
+  console.log(cont.value, 'ccc')
+})
+</script>
 
 <style scoped>
 .item {
